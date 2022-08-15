@@ -2,11 +2,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;600;700&display=swap');
 
 :root {
-
+    --header-height: 60px;
+    --header-width: 1150px;
+    --sidebar-width: 356px;
 }
 
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 html {
