@@ -10,6 +10,8 @@ import logo from "../../../../assets/image/logo.svg";
 import Popover from "../Popover";
 import AccountItem from "../AccountItem";
 import { useState, useRef } from "react";
+import Button from "../Button";
+import plus from "../../../../assets/image/plus.svg";
 
 const cn = classNames.bind(styles);
 
@@ -50,7 +52,19 @@ function Header() {
                     )}
                 </div>
 
-                <div className={cn("actions")}></div>
+                <div className={cn("actions")}>
+                    <Button
+                        outline
+                        className={cn("size-upload-btn")}
+                        leftIcon={plus}
+                        to="/"
+                    >
+                        Upload
+                    </Button>
+                    <Button primary to="/">
+                        Log in
+                    </Button>
+                </div>
             </div>
         </header>
     );
