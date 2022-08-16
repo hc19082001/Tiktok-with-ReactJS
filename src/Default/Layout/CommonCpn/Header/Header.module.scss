@@ -34,7 +34,22 @@
         border-radius: 92px;
         position: relative;
         display: flex;
-        border: solid 1px transparent;
+        border: solid 1.5px transparent;
+
+        .popover {
+            position: absolute;
+            width: 100%;
+            left: 0;
+            top: var(--search-height);
+
+            .pop-label {
+                padding: 5px 12px;
+                font-size: 14px;
+                line-height: 20px;
+                font-weight: 600;
+                color: rgba(22, 24, 35, 0.5);
+            }
+        }
 
         &:focus-within {
             border: 1.5px solid #c5c6c9;

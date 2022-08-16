@@ -7,10 +7,15 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import classNames from "classnames/bind";
 import logo from "../../../../assets/image/logo.svg";
+import Popover from "../Popover";
+import AccountItem from "../AccountItem";
+import { useState, useRef } from "react";
 
 const cn = classNames.bind(styles);
 
 function Header() {
+    const [Appear, setAppear] = useState(false);
+
     return (
         <header className={cn("header")}>
             <div className={cn("content")}>
@@ -19,6 +24,11 @@ function Header() {
                     <input
                         placeholder="Search accounts and videos"
                         spellCheck={false}
+                        onChange={(e) =>
+                            e.target.value !== ""
+                                ? setAppear(true)
+                                : setAppear(false)
+                        }
                     />
                     <button className={cn("clear-btn")}>
                         <FontAwesomeIcon icon={faCircleXmark} />
@@ -27,6 +37,17 @@ function Header() {
                     <button className={cn("search-btn")}>
                         <FontAwesomeIcon icon={faMagnifyingGlass} />
                     </button>
+                    {Appear && (
+                        <div className={cn("popover")}>
+                            <Popover>
+                                <p className={cn("pop-label")}>Accounts</p>
+                                <AccountItem />
+                                <AccountItem />
+                                <AccountItem />
+                                <AccountItem />
+                            </Popover>
+                        </div>
+                    )}
                 </div>
 
                 <div className={cn("actions")}></div>
