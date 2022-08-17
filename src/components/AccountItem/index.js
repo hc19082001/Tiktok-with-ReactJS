@@ -1,6 +1,6 @@
 import styles from "./AccountItem.module.scss";
 import classNames from "classnames/bind";
-import check from "../../../../assets/image/check.svg";
+import check from "../../assets/image/check.svg";
 
 const cn = classNames.bind(styles);
 

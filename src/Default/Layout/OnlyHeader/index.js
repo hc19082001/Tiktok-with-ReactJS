@@ -1,4 +1,4 @@
-import Header from "../CommonCpn/Header";
+import Header from "../../../components/common/Header";
 
 function OnlyHeader({ children }) {
     return (

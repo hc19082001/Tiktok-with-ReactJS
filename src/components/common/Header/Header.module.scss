@@ -36,21 +36,6 @@
         display: flex;
         border: solid 1.5px transparent;
 
-        .popover {
-            position: absolute;
-            width: 100%;
-            left: 0;
-            top: var(--search-height);
-
-            .pop-label {
-                padding: 5px 12px;
-                font-size: 14px;
-                line-height: 20px;
-                font-weight: 600;
-                color: rgba(22, 24, 35, 0.5);
-            }
-        }
-
         &:focus-within {
             border: 1.5px solid #c5c6c9;
         } 
@@ -114,5 +99,46 @@
         .size-upload-btn {
             padding: 6px 17px;
         }
+
+        .more-btn {
+            vertical-align: middle;
+            margin-left: 16px;
+        }
+
+        .setting {
+            position: relative;
+            padding: 12px 0;
+
+
+            &:hover .setting-popover{
+                display: block;
+            }
+
+            .setting-popover {
+                display: none;
+                width: 224px;
+                margin-top: 5px;
+                position: absolute;
+                right: 0;
+            }
+        }
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+}
+
+@keyframes show {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
     }
 }

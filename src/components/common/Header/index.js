@@ -6,17 +6,21 @@ import {
     faMagnifyingGlass
 } from "@fortawesome/free-solid-svg-icons";
 import classNames from "classnames/bind";
-import logo from "../../../../assets/image/logo.svg";
-import Popover from "../Popover";
-import AccountItem from "../AccountItem";
-import { useState, useRef } from "react";
+
+import logo from "../../../assets/image/logo.svg";
+import plus from "../../../assets/image/plus.svg";
+import more from "../../../assets/image/more.svg";
+
+import { useState } from "react";
+
+import Popover_Search from "../../Popover_Search";
 import Button from "../Button";
-import plus from "../../../../assets/image/plus.svg";
+import Popover_Setting from "../../Popover_Setting";
 
 const cn = classNames.bind(styles);
 
 function Header() {
-    const [Appear, setAppear] = useState(false);
+    const [popover_search, setPopover_search] = useState(false);
 
     return (
         <header className={cn("header")}>
@@ -28,8 +32,8 @@ function Header() {
                         spellCheck={false}
                         onChange={(e) =>
                             e.target.value !== ""
-                                ? setAppear(true)
-                                : setAppear(false)
+                                ? setPopover_search(true)
+                                : setPopover_search(false)
                         }
                     />
                     <button className={cn("clear-btn")}>
@@ -39,17 +43,7 @@ function Header() {
                     <button className={cn("search-btn")}>
                         <FontAwesomeIcon icon={faMagnifyingGlass} />
                     </button>
-                    {Appear && (
-                        <div className={cn("popover")}>
-                            <Popover>
-                                <p className={cn("pop-label")}>Accounts</p>
-                                <AccountItem />
-                                <AccountItem />
-                                <AccountItem />
-                                <AccountItem />
-                            </Popover>
-                        </div>
-                    )}
+                    {popover_search && <Popover_Search />}
                 </div>
 
                 <div className={cn("actions")}>
@@ -64,6 +58,13 @@ function Header() {
                     <Button primary to="/">
                         Log in
                     </Button>
+
+                    <div className={cn("setting")}>
+                        <img src={more} className={cn("more-btn")} />
+                        <div className={cn("setting-popover")}>
+                            <Popover_Setting />
+                        </div>
+                    </div>
                 </div>
             </div>
         </header>

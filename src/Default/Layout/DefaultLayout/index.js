@@ -1,8 +1,8 @@
 import classNames from "classnames/bind";
 import styles from "./DefaultLayout.module.scss";
 
-import Header from "../CommonCpn/Header";
-import Sidebar from "../CommonCpn/Sidebar";
+import Header from "../../../components/common/Header";
+import Sidebar from "../../../components/common/Sidebar";
 
 const cn = classNames.bind(styles);
 
