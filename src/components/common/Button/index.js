@@ -10,6 +10,7 @@ function Button({
     children,
     className,
     leftIcon,
+    onClick,
     primary = false,
     outline = false,
     ...other
@@ -40,6 +41,7 @@ function Button({
                 outline,
                 [className]: className
             })}
+            onClick={onClick}
         >
             <img src={leftIcon} />
             {children}

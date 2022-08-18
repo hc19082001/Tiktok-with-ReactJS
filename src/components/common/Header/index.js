@@ -10,6 +10,7 @@ import classNames from "classnames/bind";
 import logo from "../../../assets/image/logo.svg";
 import plus from "../../../assets/image/plus.svg";
 import more from "../../../assets/image/more.svg";
+import search from "../../../assets/image/search.svg";
 
 import { useState } from "react";
 
@@ -41,7 +42,7 @@ function Header() {
                     </button>
                     <FontAwesomeIcon className={cn("load")} icon={faSpinner} />
                     <button className={cn("search-btn")}>
-                        <FontAwesomeIcon icon={faMagnifyingGlass} />
+                        <img src={search} />
                     </button>
                     {popover_search && <Popover_Search />}
                 </div>

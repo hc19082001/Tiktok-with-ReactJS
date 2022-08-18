@@ -13,6 +13,7 @@
     --search-btn-width: 52px;
 
     width: var(--header-width);
+    padding: 0 24px;
     height: 100%;
     display: flex;
     align-items: center;
@@ -125,20 +126,3 @@
     }
 }
 
-@keyframes fadeOut {
-    0% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-    }
-}
-
-@keyframes show {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-}
