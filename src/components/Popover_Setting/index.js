@@ -9,6 +9,7 @@ import { useState } from "react";
 import Header_Popover_Setting from "./Header_Popover_Setting";
 
 import logout from "../../assets/image/logout.svg";
+import white_up_arrow from "../../assets/image/white_up_arrow.svg";
 
 const cn = classNames.bind(styles);
 
@@ -29,6 +30,7 @@ function Popover_Setting({ menu, logIn = false, onHandleLogOut }) {
 
     return (
         <div className={cn("wrapper")}>
+            <img src={white_up_arrow} className={cn("arrow-popover")} />
             <Popover className={cn("pop-item")}>
                 {StandIn.length > 1 && (
                     <Header_Popover_Setting

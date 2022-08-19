@@ -17,6 +17,7 @@ import Button from "../Button";
 import Popover_Setting from "../../Popover_Setting";
 import { MENU_SETTING, MENU_SETTING_USER } from "../../../Default/constant";
 import PopUpNotification from "../PopUpNotification";
+import Tooltip from "../Tooltip";
 
 const cn = classNames.bind(styles);
 
@@ -77,14 +78,20 @@ function Header() {
                                 >
                                     9
                                 </PopUpNotification>
+                                <div className={cn("tooltip-messages")}>
+                                    <Tooltip>Messages</Tooltip>
+                                </div>
                             </div>
                             <div className={cn("send-icon")}>
                                 <img src={message}></img>
                                 <PopUpNotification
                                     className={cn("number-notifi")}
                                 >
-                                    5
+                                    99+
                                 </PopUpNotification>
+                                <div className={cn("tooltip-inbox")}>
+                                    <Tooltip>Inbox</Tooltip>
+                                </div>
                             </div>
                             <div className={cn("setting")}>
                                 <img

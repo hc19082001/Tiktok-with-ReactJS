@@ -139,9 +139,30 @@
             position: relative;
         }
 
-        .number-notifi {
+        .message-icon:hover .tooltip-messages, .send-icon:hover .tooltip-inbox {
+            display: block;
+        }
+
+         
+
+        .tooltip-messages, .tooltip-inbox {
+            display: none;
+            position: absolute;
+            top: 37px;
             right: 0;
-            top: -7px;
+        }
+
+        .tooltip-messages {
+            transform: translateX(33%);
+        }
+
+        .tooltip-inbox {
+            transform: translateX(23%);
+        }
+
+
+        .number-notifi {
+            top: -8px;
             left: 16px;
         }
     }
