@@ -122,6 +122,27 @@
                 position: absolute;
                 right: 0;
             }
+
+            .avt {
+                width: 32px;
+                height: 32px;
+                border-radius: 50%;
+                object-fit: cover;
+                vertical-align: middle;
+                margin-left: 24px;
+            }
+        }
+
+        .message-icon, .send-icon {
+            margin-left: 16px;
+            display: flex;
+            position: relative;
+        }
+
+        .number-notifi {
+            right: 0;
+            top: -7px;
+            left: 16px;
         }
     }
 }

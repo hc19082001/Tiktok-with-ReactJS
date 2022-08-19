@@ -7,12 +7,13 @@ import Popover from "../common/Popover";
 import { useState } from "react";
 
 import Header_Popover_Setting from "./Header_Popover_Setting";
-import { MENU_SETTING } from "../../Default/constant";
+
+import logout from "../../assets/image/logout.svg";
 
 const cn = classNames.bind(styles);
 
-function Popover_Setting() {
-    const [StandIn, setStandIn] = useState([{ list: MENU_SETTING }]);
+function Popover_Setting({ menu, logIn = false, onHandleLogOut }) {
+    const [StandIn, setStandIn] = useState([{ list: menu }]);
     const current = StandIn[StandIn.length - 1];
 
     const handleClick = (item) => {
@@ -47,6 +48,15 @@ function Popover_Setting() {
                         {item.option}
                     </Button>
                 ))}
+                {logIn && (
+                    <Button
+                        className={cn("but-item", "logout")}
+                        leftIcon={logout}
+                        onClick={onHandleLogOut}
+                    >
+                        Log out
+                    </Button>
+                )}
             </Popover>
         </div>
     );

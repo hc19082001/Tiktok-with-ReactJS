@@ -1,6 +1,9 @@
 import keyboard from "../assets/image/keyboard.svg";
 import lang from "../assets/image/lang.svg";
 import question from "../assets/image/question.svg";
+import profile from "../assets/image/profile.svg";
+import coin from "../assets/image/coin.svg";
+import setting from "../assets/image/setting.svg";
 
 export const MENU_SETTING = [
     {
@@ -112,6 +115,27 @@ export const MENU_SETTING = [
         option: "Keyboard shortcuts",
         href: "",
         icon: keyboard,
+        to: "/"
+    }
+];
+
+export const MENU_SETTING_USER = [
+    {
+        option: "View Profile",
+        href: "",
+        icon: profile,
+        to: "/"
+    },
+    {
+        option: "Get coins",
+        href: "",
+        icon: coin,
+        to: "/"
+    },
+    {
+        option: "Settings",
+        href: "",
+        icon: setting,
         to: "/"
     }
 ];
