@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/Tiktok-with-ReactJS/static/css/main.8d58b282.css",
+    "main.js": "/Tiktok-with-ReactJS/static/js/main.f80e3630.js",
+    "static/js/787.fe00223f.chunk.js": "/Tiktok-with-ReactJS/static/js/787.fe00223f.chunk.js",
+    "static/media/logo.svg": "/Tiktok-with-ReactJS/static/media/logo.0fdc52dbbec68a786bfa03dca9b49b1a.svg",
+    "static/media/setting.svg": "/Tiktok-with-ReactJS/static/media/setting.48e306597452ec9d44f1befd4145772e.svg",
+    "static/media/keyboard.svg": "/Tiktok-with-ReactJS/static/media/keyboard.5e572e769824dc5bd459d8ed1db516e3.svg",
+    "static/media/coin.svg": "/Tiktok-with-ReactJS/static/media/coin.0a31fa03ff1e295ffafe5dcc0ac85a88.svg",
+    "static/media/question.svg": "/Tiktok-with-ReactJS/static/media/question.c312672bd656c364f6a09fd1f437db21.svg",
+    "static/media/lang.svg": "/Tiktok-with-ReactJS/static/media/lang.bcf93f8d3b1aa7517a33141e0d373710.svg",
+    "static/media/profile.svg": "/Tiktok-with-ReactJS/static/media/profile.0f5878bd0dc979e4f421477be84dfeb0.svg",
+    "static/media/logout.svg": "/Tiktok-with-ReactJS/static/media/logout.c8b0a65a847a401393b9aa8009101bbc.svg",
+    "static/media/message.svg": "/Tiktok-with-ReactJS/static/media/message.af36b84f4550f7e9e15b85296a430f96.svg",
+    "index.html": "/Tiktok-with-ReactJS/index.html",
+    "static/media/send.svg": "/Tiktok-with-ReactJS/static/media/send.9f758ede105244c6411db8d54e1e6508.svg",
+    "static/media/search.svg": "/Tiktok-with-ReactJS/static/media/search.476d24f719aa8f7fc17a589d07134f92.svg",
+    "static/media/check.svg": "/Tiktok-with-ReactJS/static/media/check.f17e75c3e78f955d43af9a52f2a59ee9.svg",
+    "static/media/back.svg": "/Tiktok-with-ReactJS/static/media/back.4331cfefb802fb16c2f8c7d20a0fc238.svg",
+    "static/media/more.svg": "/Tiktok-with-ReactJS/static/media/more.201e2ceac4e6a8e510c3d36c91239c7e.svg",
+    "static/media/plus.svg": "/Tiktok-with-ReactJS/static/media/plus.69042eba275af8426f0de2585b158c90.svg",
+    "static/media/white_up_arrow.svg": "/Tiktok-with-ReactJS/static/media/white_up_arrow.b8661c9c3adb71e6fa89cef462977487.svg",
+    "main.8d58b282.css.map": "/Tiktok-with-ReactJS/static/css/main.8d58b282.css.map",
+    "main.f80e3630.js.map": "/Tiktok-with-ReactJS/static/js/main.f80e3630.js.map",
+    "787.fe00223f.chunk.js.map": "/Tiktok-with-ReactJS/static/js/787.fe00223f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8d58b282.css",
+    "static/js/main.f80e3630.js"
+  ]
+}
