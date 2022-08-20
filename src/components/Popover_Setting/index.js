@@ -41,7 +41,9 @@ function Popover_Setting({ menu, logIn = false, onHandleLogOut }) {
                 {current.list.map((item, index) => (
                     <Button
                         key={index}
-                        className={cn("but-item")}
+                        className={cn("but-item", {
+                            logout: item.divideBar
+                        })}
                         leftIcon={item.icon}
                         to={item.to}
                         href={item.href}

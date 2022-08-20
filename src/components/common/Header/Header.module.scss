@@ -63,6 +63,11 @@
             transform: translateY(-50%);
         }
 
+        .clear-btn:hover {
+            cursor: pointer;
+            opacity: 0.8;
+        }
+
 
         &::after {
             content: '';
@@ -111,12 +116,7 @@
             padding: 12px 0;
 
 
-            &:hover .setting-popover{
-                display: block;
-            }
-
             .setting-popover {
-                display: none;
                 width: 224px;
                 margin-top: 5px;
                 position: absolute;
@@ -159,8 +159,6 @@
         .tooltip-inbox {
             transform: translateX(23%);
         }
-
-
         .number-notifi {
             top: -8px;
             left: 16px;

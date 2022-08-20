@@ -10,7 +10,7 @@ import search from "../../../assets/image/search.svg";
 import send from "../../../assets/image/send.svg";
 import message from "../../../assets/image/message.svg";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 import Popover_Search from "../../Popover_Search";
 import Button from "../Button";
@@ -24,13 +24,49 @@ const cn = classNames.bind(styles);
 function Header() {
     const [popover_search, setPopover_search] = useState(false);
     const [isLogIn, setIsLogIn] = useState(true);
+    const [isAppear, setIsAppear] = useState(false);
+    const [clearBtn, setClearBtn] = useState(false);
+
+    const id = useRef();
+    const input = useRef();
+
+    const handleChangeText = (e) => {
+        if (e.target.value) {
+            setPopover_search(true);
+            setClearBtn(true);
+        } else {
+            setPopover_search(false);
+            setClearBtn(false);
+        }
+    };
+
+    const handleDeleteText = () => {
+        input.current.value = "";
+        setClearBtn(false);
+        setPopover_search(false);
+    };
 
     const handleLogOut = () => {
         setIsLogIn(false);
+        setIsAppear(false);
     };
 
     const handleLogIn = () => {
         setIsLogIn(true);
+    };
+
+    const handleMouseEnter = () => {
+        setIsAppear(true);
+    };
+
+    const handleMouseLeave = () => {
+        id.current = setTimeout(() => {
+            setIsAppear(false);
+        }, 700);
+    };
+
+    const handleMouseBack = () => {
+        clearTimeout(id.current);
     };
 
     console.log([...MENU_SETTING_USER, ...MENU_SETTING]);
@@ -41,18 +77,20 @@ function Header() {
                 <img src={logo} alt="Tiktok" />
                 <div className={cn("search")}>
                     <input
+                        ref={input}
                         placeholder="Search accounts and videos"
                         spellCheck={false}
-                        onChange={(e) =>
-                            e.target.value !== ""
-                                ? setPopover_search(true)
-                                : setPopover_search(false)
-                        }
+                        onChange={handleChangeText}
                     />
-                    <button className={cn("clear-btn")}>
-                        <FontAwesomeIcon icon={faCircleXmark} />
-                    </button>
-                    <FontAwesomeIcon className={cn("load")} icon={faSpinner} />
+                    {clearBtn && (
+                        <button
+                            className={cn("clear-btn")}
+                            onClick={handleDeleteText}
+                        >
+                            <FontAwesomeIcon icon={faCircleXmark} />
+                        </button>
+                    )}
+                    {/* <FontAwesomeIcon className={cn("load")} icon={faSpinner} /> */}
                     <button className={cn("search-btn")}>
                         <img src={search} />
                     </button>
@@ -93,20 +131,31 @@ function Header() {
                                     <Tooltip>Inbox</Tooltip>
                                 </div>
                             </div>
-                            <div className={cn("setting")}>
+
+                            <div
+                                className={cn("setting")}
+                                onMouseLeave={handleMouseLeave}
+                                onMouseEnter={handleMouseEnter}
+                            >
                                 <img
                                     src="https://p9-sign-sg.tiktokcdn.com/aweme/720x720/tiktok-obj/f0a142d7c5d563cbefbedaf71546e039.jpeg?x-expires=1661058000&x-signature=Z95oKTocZeWDwvc7gAuFYg2xyVk%3D"
                                     className={cn("avt")}
                                 />
-                                <div className={cn("setting-popover")}>
-                                    <Popover_Setting
-                                        menu={[
-                                            ...MENU_SETTING_USER,
-                                            ...MENU_SETTING
-                                        ]}
-                                        logIn
-                                        onHandleLogOut={handleLogOut}
-                                    />
+
+                                <div
+                                    className={cn("setting-popover")}
+                                    onMouseEnter={handleMouseBack}
+                                >
+                                    {isAppear && (
+                                        <Popover_Setting
+                                            menu={[
+                                                ...MENU_SETTING_USER,
+                                                ...MENU_SETTING
+                                            ]}
+                                            logIn
+                                            onHandleLogOut={handleLogOut}
+                                        />
+                                    )}
                                 </div>
                             </div>
                         </>
@@ -116,10 +165,20 @@ function Header() {
                                 Log in
                             </Button>
 
-                            <div className={cn("setting")}>
+                            <div
+                                className={cn("setting")}
+                                onMouseLeave={handleMouseLeave}
+                                onMouseEnter={handleMouseEnter}
+                            >
                                 <img src={more} className={cn("more-btn")} />
-                                <div className={cn("setting-popover")}>
-                                    <Popover_Setting menu={MENU_SETTING} />
+
+                                <div
+                                    className={cn("setting-popover")}
+                                    onMouseEnter={handleMouseBack}
+                                >
+                                    {isAppear && (
+                                        <Popover_Setting menu={MENU_SETTING} />
+                                    )}
                                 </div>
                             </div>
                         </>
