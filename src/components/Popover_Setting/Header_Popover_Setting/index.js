@@ -1,7 +1,7 @@
 import classNames from "classnames/bind";
 import styles from "./Header_Popover_Setting.module.scss";
 
-import back from "../../../assets/image/back.svg";
+import back from "../../../assets/image/header/back.svg";
 const cn = classNames.bind(styles);
 
 function Header_Popover_Setting({ title, onClick }) {

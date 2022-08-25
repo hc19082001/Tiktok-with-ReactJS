@@ -3,12 +3,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleXmark, faSpinner } from "@fortawesome/free-solid-svg-icons";
 import classNames from "classnames/bind";
 
-import logo from "../../../assets/image/logo.svg";
-import plus from "../../../assets/image/plus.svg";
-import more from "../../../assets/image/more.svg";
-import search from "../../../assets/image/search.svg";
-import send from "../../../assets/image/send.svg";
-import message from "../../../assets/image/message.svg";
+import logo from "../../../assets/image/header/logo.svg";
+import plus from "../../../assets/image/header/plus.svg";
+import more from "../../../assets/image/header/more.svg";
+import search from "../../../assets/image/header/search.svg";
+import send from "../../../assets/image/header/send.svg";
+import message from "../../../assets/image/header/message.svg";
 
 import { useState, useRef } from "react";
 

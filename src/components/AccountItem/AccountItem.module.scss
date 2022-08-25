@@ -17,12 +17,22 @@
         margin-right: 12px;
     }
 
+    
     .infor {
+        .bold {
+            font-family: Sofiapro;
+        }
+
+        .smdes {
+            font-size: 1.3rem;
+            margin-top: 1px;
+            line-height: 15px;
+        }
 
         h4 {
             font-size: 1.6rem;
             line-height: 22px;
-            font-weight: 600;
+            font-weight: 300;
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;

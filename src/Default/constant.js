@@ -1,9 +1,14 @@
-import keyboard from "../assets/image/keyboard.svg";
-import lang from "../assets/image/lang.svg";
-import question from "../assets/image/question.svg";
-import profile from "../assets/image/profile.svg";
-import coin from "../assets/image/coin.svg";
-import setting from "../assets/image/setting.svg";
+import keyboard from "../assets/image/header/keyboard.svg";
+import lang from "../assets/image/header/lang.svg";
+import question from "../assets/image/header/question.svg";
+import profile from "../assets/image/header/profile.svg";
+import coin from "../assets/image/header/coin.svg";
+import setting from "../assets/image/header/setting.svg";
+
+import difference from "../assets/image/sidebar/difference.svg";
+import music from "../assets/image/sidebar/music.svg";
+
+import { Follow, Live, Home } from "../assets/image/sidebar/SideBarIcon";
 
 export const MENU_SETTING = [
     {
@@ -138,4 +143,156 @@ export const MENU_SETTING_USER = [
         icon: setting,
         to: "/"
     }
+];
+
+export const MAIN_NAV_SIDEBAR = [
+    {
+        title: "For You",
+        icon: Home
+    },
+    {
+        title: "Following",
+        icon: Follow
+    },
+    {
+        title: "LIVE",
+        icon: Live
+    }
+];
+
+export const DICOVER_SECTION = [
+    {
+        title: "suthatla",
+        icon: difference
+    },
+    {
+        title: "mackedoi",
+        icon: difference
+    },
+    {
+        title: "sansangthaydoi",
+        icon: difference
+    },
+    {
+        title: "Yêu Đơn Phương Là Gì (MEE Remix) - Mee Media & h0n",
+        icon: music
+    },
+    {
+        title: "Nghe lời mẹ ru - NSND Bạch Tuyết & Hứa Kim Tuyền",
+        icon: music
+    },
+    {
+        title: "Thiên Thần Tình Yêu - RICKY STAR",
+        icon: music
+    },
+    {
+        title: "7749hieuung",
+        icon: difference
+    },
+    {
+        title: "genzlife",
+        icon: difference
+    },
+    {
+        title: "Tình Đã Đầy Một Tim - Huyền Tâm Môn",
+        icon: music
+    },
+    {
+        title: "Thằng Hầu (Thái Hoàng Remix) [Short Version] - Dunghoangpham",
+        icon: music
+    }
+];
+
+export const FOOTER = [
+    [
+        {
+            title: "About",
+            href: "",
+            to: ""
+        },
+        {
+            title: "Tiktok Browse",
+            href: "",
+            to: ""
+        },
+        {
+            title: "Newsroom",
+            href: "",
+            to: ""
+        },
+        {
+            title: "Contact",
+            href: "",
+            to: ""
+        },
+        {
+            title: "Careers",
+            href: "",
+            to: ""
+        },
+        {
+            title: "ByteDance",
+            href: "",
+            to: ""
+        }
+    ],
+    [
+        {
+            title: "TikTok for Good",
+            href: "",
+            to: ""
+        },
+        {
+            title: "Advertise",
+            href: "",
+            to: ""
+        },
+        {
+            title: "Developers",
+            href: "",
+            to: ""
+        },
+        {
+            title: "Transparency",
+            href: "",
+            to: ""
+        },
+        {
+            title: "TikTok Rewards",
+            href: "",
+            to: ""
+        }
+    ],
+    [
+        {
+            title: "Help",
+            href: "",
+            to: ""
+        },
+        {
+            title: "Safety",
+            href: "",
+            to: ""
+        },
+        {
+            title: "Terms",
+            href: "",
+            to: ""
+        },
+        {
+            title: "Privacy",
+            href: "",
+            to: ""
+        },
+        {
+            title: "Creator Portal",
+            href: "",
+            to: ""
+        },
+        {
+            title: "Community Guidelines",
+            href: "",
+            to: ""
+        }
+    ]
 ];

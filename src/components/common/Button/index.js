@@ -43,7 +43,7 @@ function Button({
             })}
             onClick={onClick}
         >
-            <img src={leftIcon} />
+            {leftIcon && <img src={leftIcon} />}
             {children}
         </Btn>
     );

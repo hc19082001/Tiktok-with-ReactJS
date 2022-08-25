@@ -8,8 +8,8 @@ import { useState } from "react";
 
 import Header_Popover_Setting from "./Header_Popover_Setting";
 
-import logout from "../../assets/image/logout.svg";
-import white_up_arrow from "../../assets/image/white_up_arrow.svg";
+import logout from "../../assets/image/header/logout.svg";
+import white_up_arrow from "../../assets/image/header/white_up_arrow.svg";
 
 const cn = classNames.bind(styles);
 

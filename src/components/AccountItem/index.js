@@ -1,10 +1,10 @@
 import styles from "./AccountItem.module.scss";
 import classNames from "classnames/bind";
-import check from "../../assets/image/check.svg";
+import check from "../../assets/image/header/check.svg";
 
 const cn = classNames.bind(styles);
 
-function AccountItem() {
+function AccountItem({ bold, smdes }) {
     return (
         <div className={cn("account")}>
             <img
@@ -13,11 +13,11 @@ function AccountItem() {
                 className={cn("avt")}
             />
             <div className={cn("infor")}>
-                <h4>
+                <h4 className={cn({ bold })}>
                     cuongnguyen123
                     <img src={check} />
                 </h4>
-                <p>Nguyễn Cường</p>
+                <p className={cn({ smdes })}>Nguyễn Cường</p>
             </div>
         </div>
     );

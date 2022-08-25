@@ -11,10 +11,11 @@
     img {
         margin-right: 8px;
     }
+}
 
-    & + .wrapper {
-        margin-left: 16px;
-    }
+.wrapper + .wrapper {
+    margin-left: 16px;
+
 }
 
 .primary {
