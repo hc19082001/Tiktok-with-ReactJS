@@ -7,6 +7,7 @@ import styles from "./Sidebar.module.scss";
 
 import { DICOVER_SECTION } from "../../../Default/constant";
 import Sidebar_Footer from "./Sidebar_Footer";
+import ProfilePopover from "../../ProfilePopover";
 
 const cn = classNames.bind(styles);
 
@@ -14,16 +15,21 @@ function Sidebar() {
     return (
         <aside className={cn("sidebar")}>
             <MainBar />
+
             <Sidebar_DivSecondary title="Suggested accounts" seeall>
                 <AccountItem bold smdes />
                 <AccountItem bold smdes />
                 <AccountItem bold smdes />
+
+                <ProfilePopover />
             </Sidebar_DivSecondary>
+
             <Sidebar_DivSecondary title="Following accounts" seeall>
                 <AccountItem bold smdes />
                 <AccountItem bold smdes />
                 <AccountItem bold smdes />
             </Sidebar_DivSecondary>
+
             <Sidebar_DivSecondary title="Discover">
                 <div className={cn("tag")}>
                     {DICOVER_SECTION.map(({ title, icon }, index) => (
@@ -40,6 +46,7 @@ function Sidebar() {
                     ))}
                 </div>
             </Sidebar_DivSecondary>
+
             <Sidebar_DivSecondary>
                 <Sidebar_Footer />
             </Sidebar_DivSecondary>
