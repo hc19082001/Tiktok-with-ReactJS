@@ -4,20 +4,20 @@ import check from "../../assets/image/header/check.svg";
 
 const cn = classNames.bind(styles);
 
-function AccountItem({ bold, smdes }) {
+function AccountItem({ bold, smdes, userInfor, onMouseEnter, onMouseLeave }) {
     return (
-        <div className={cn("account")}>
-            <img
-                src="https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/59209962d93e20c7424ea5c42b18381b~c5_100x100.jpeg?x-expires=1660795200&x-signature=fwJHNBmYuiVJpXQAXYuhKlgDiuM%3D"
-                alt="account"
-                className={cn("avt")}
-            />
+        <div
+            className={cn("account")}
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
+        >
+            <img src={userInfor.avatar} alt="account" className={cn("avt")} />
             <div className={cn("infor")}>
                 <h4 className={cn({ bold })}>
-                    cuongnguyen123
-                    <img src={check} />
+                    {userInfor.username}
+                    {userInfor.badge && <img src={check} alt="img" />}
                 </h4>
-                <p className={cn({ smdes })}>Nguyễn Cường</p>
+                <p className={cn({ smdes })}>{userInfor.name}</p>
             </div>
         </div>
     );

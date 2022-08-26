@@ -8,26 +8,26 @@ import check from "../../assets/image/header/check.svg";
 
 const cn = classNames.bind(styles);
 
-function ProfilePopover() {
+function ProfilePopover({ className, userInfor }) {
     return (
-        <Popover className={cn("wrapper")}>
+        <Popover className={cn("wrapper", { [className]: className })}>
             <div className={cn("header")}>
-                <img
-                    className={cn("avt")}
-                    src="https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/59209962d93e20c7424ea5c42b18381b~c5_100x100.jpeg?x-expires=1660795200&x-signature=fwJHNBmYuiVJpXQAXYuhKlgDiuM%3D"
-                />
+                <img className={cn("avt")} alt="img" src={userInfor.avatar} />
                 <Button className={cn("follow")} primary>
                     Follow
                 </Button>
             </div>
             <Button className={cn("username")}>
-                cuongnguyen123 <img className={cn("check")} src={check} />
+                {userInfor.username}
+                {userInfor.badge && (
+                    <img className={cn("check")} src={check} alt="img" />
+                )}
             </Button>
-            <p className={cn("name")}>Nguyễn Cường</p>
+            <p className={cn("name")}>{userInfor.name}</p>
             <div className={cn("number-des")}>
-                <span className={cn("num")}>2.8M</span>
+                <span className={cn("num")}>{userInfor.followers}</span>
                 <span className={cn("label")}>Followers</span>
-                <span className={cn("num")}>1.8M</span>
+                <span className={cn("num")}>{userInfor.likes}</span>
                 <span className={cn("label")}>Likes</span>
             </div>
         </Popover>
