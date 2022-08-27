@@ -138,7 +138,7 @@ function Header() {
                                 onMouseEnter={handleMouseEnter}
                             >
                                 <img
-                                    src="https://p9-sign-sg.tiktokcdn.com/aweme/720x720/tiktok-obj/f0a142d7c5d563cbefbedaf71546e039.jpeg?x-expires=1661058000&x-signature=Z95oKTocZeWDwvc7gAuFYg2xyVk%3D"
+                                    src="https://p16-sign-sg.tiktokcdn.com/aweme/720x720/tiktok-obj/f0a142d7c5d563cbefbedaf71546e039.jpeg?x-expires=1661752800&x-signature=TKGQbnQcVBim1DyC3jCXcpg3yvo%3D"
                                     className={cn("avt")}
                                 />
 

@@ -303,6 +303,7 @@ export const USERS = [
         name: "Một Bản Tình Ca 🎼",
         avatar: "https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/59209962d93e20c7424ea5c42b18381b~c5_100x100.jpeg?x-expires=1660795200&x-signature=fwJHNBmYuiVJpXQAXYuhKlgDiuM%3D",
         followers: "3.3M",
+        badge: true,
         likes: "205M"
     },
     {
@@ -326,6 +327,7 @@ export const USERS = [
         name: "𝘿𝙆𝙖𝙬𝙣ッ",
         avatar: "https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/80b4fd9f5ad407f7e1e2c20ca17a2550~c5_100x100.jpeg?x-expires=1661605200&x-signature=ejFcO%2FRCvLpqPuN0%2F90kGOnk7G4%3D",
         followers: "7K",
+        badge: true,
         likes: "400K"
     },
     {
