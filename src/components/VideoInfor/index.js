@@ -1,5 +1,6 @@
 import classNames from "classnames/bind";
 import styles from "./VideoInfor.module.scss";
+import { motion } from "framer-motion";
 
 import FrameRecommendVideo from "../../components/common/FrameRecommendVideo";
 import Button from "../../components/common/Button";
@@ -15,6 +16,15 @@ const cn = classNames.bind(styles);
 
 function VideoInfor() {
     const [isUnderlineUsername, setIsUnderlineUsername] = useState(false);
+    const [isLike, setIsLike] = useState(false);
+    const [isFollow, setIsFollow] = useState(false);
+
+    const animations = {
+        like: {
+            scale: [1, 1.4, 0.8, 1]
+        },
+        dislike: {}
+    };
 
     function handleMouseHoverAvt() {
         setIsUnderlineUsername(true);
@@ -22,6 +32,14 @@ function VideoInfor() {
 
     function handleMouseLeaveAvt() {
         setIsUnderlineUsername(false);
+    }
+
+    function handleLike() {
+        setIsLike(!isLike);
+    }
+
+    function handleChangeFollower() {
+        setIsFollow(!isFollow);
     }
 
     return (
@@ -77,8 +95,13 @@ function VideoInfor() {
                     />
                     <div className={cn("actions")}>
                         <div className={cn("action")}>
-                            <div className={cn("act-btn")}>
-                                <img alt="img" src={black_heart} />
+                            <div className={cn("act-btn")} onClick={handleLike}>
+                                <motion.img
+                                    alt="img"
+                                    variants={animations}
+                                    src={isLike ? pink_heart : black_heart}
+                                    animate={isLike ? "like" : "unlike"}
+                                />
                             </div>
                             <span className={cn("act-text")}>130K</span>
                         </div>
@@ -98,9 +121,23 @@ function VideoInfor() {
                 </div>
             </div>
 
-            <Button className={cn("follow")} outline>
-                <p className={cn("fl-text")}>Follow</p>
-            </Button>
+            {isFollow ? (
+                <Button
+                    onClick={handleChangeFollower}
+                    className={cn("following")}
+                    outline
+                >
+                    <p className={cn("fling-text")}>Following</p>
+                </Button>
+            ) : (
+                <Button
+                    onClick={handleChangeFollower}
+                    className={cn("follow")}
+                    outline
+                >
+                    <p className={cn("fl-text")}>Follow</p>
+                </Button>
+            )}
         </FrameRecommendVideo>
     );
 }
