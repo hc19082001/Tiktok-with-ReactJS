@@ -66,6 +66,11 @@
             transform: translateY(-50%);
         }
 
+        .load {
+            width: 16px;
+            height: 16px;
+            opacity: 0.3;
+        }
         .clear-btn:hover {
             cursor: pointer;
             opacity: 0.8;

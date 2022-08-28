@@ -9,12 +9,14 @@ import styles from "./Sidebar.module.scss";
 import { DICOVER_SECTION, USERS } from "../../../Default/constant";
 import Sidebar_Footer from "./Sidebar_Footer";
 import ProfilePopover from "../../ProfilePopover";
-import { createContext, useRef, useState } from "react";
+import { createContext, useEffect, useRef, useState } from "react";
 
 const cn = classNames.bind(styles);
 export const TopPosition = createContext();
 
 function Sidebar() {
+    const [SuggestdAccounts, setSuggestdAccounts] = useState([]);
+    const [FollowingAccounts, setFollowingAccounts] = useState([]);
     let idLeave = useRef();
     let idHover = useRef();
 
@@ -33,10 +35,8 @@ function Sidebar() {
     };
 
     const handleLeave = () => {
-        console.log("Bo hover khoi item");
         clearTimeout(idHover.current);
         if (Profile.index !== -1) {
-            console.log("Thiet lap 1s sau profile bien mat");
             clearTimeout(idLeave.current);
             idLeave.current = setTimeout(() => {
                 setProfile({
@@ -48,24 +48,41 @@ function Sidebar() {
     };
 
     const handleProfileEnter = () => {
-        console.log("Hoveer vào profile, bo thiet lap bien mat");
         clearTimeout(idLeave.current);
     };
 
     const handleProfileLeave = () => {
-        console.log("Roi khoi profile");
         setProfile({
             index: -1,
             user: null
         });
     };
+
+    useEffect(() => {
+        Promise.all([
+            fetch(
+                `https://630b16fbed18e825164db3b3.mockapi.io/api/tiktok/users?p=1&l=5&badge=true`
+            )
+                .then((data) => data.json())
+                .then((result) => result),
+            fetch(
+                `https://630b16fbed18e825164db3b3.mockapi.io/api/tiktok/users?p=1&l=10&badge=false`
+            )
+                .then((data) => data.json())
+                .then((result) => result)
+        ]).then(([SuggestedAcc, FollowingAcc]) => {
+            setSuggestdAccounts(SuggestedAcc);
+            setFollowingAccounts(FollowingAcc);
+        });
+    }, []);
+
     return (
         <aside className={cn("sidebar")}>
             <MainBar />
 
             <Sidebar_DivSecondary title="Suggested accounts" seeall>
                 <div className={cn("container")}>
-                    {USERS.map((user, index) => (
+                    {SuggestdAccounts.map((user, index) => (
                         <AccountItem
                             onMouseEnter={() => handleHover(user, index)}
                             onMouseLeave={handleLeave}
@@ -94,7 +111,7 @@ function Sidebar() {
             </Sidebar_DivSecondary>
 
             <Sidebar_DivSecondary title="Following accounts" seeall>
-                {USERS.map((user, index) => (
+                {FollowingAccounts.map((user, index) => (
                     <AccountItem bold smdes userInfor={user} key={index} />
                 ))}
             </Sidebar_DivSecondary>

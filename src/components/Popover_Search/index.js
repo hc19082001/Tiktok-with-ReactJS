@@ -6,13 +6,14 @@ import { USERS } from "../../Default/constant";
 
 const cn = classNames.bind(styles);
 
-function Popover_Search() {
+function Popover_Search({ listdata }) {
+    console.log(listdata);
     return (
         <div className={cn("popover")}>
             <Popover>
                 <p className={cn("pop-label")}>Accounts</p>
-                {USERS.map((user, index) => (
-                    <AccountItem userInfor={user} key={index} />
+                {listdata.map((user) => (
+                    <AccountItem userInfor={user} key={user.id} />
                 ))}
             </Popover>
         </div>

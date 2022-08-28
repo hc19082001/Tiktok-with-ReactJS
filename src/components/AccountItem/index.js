@@ -11,13 +11,17 @@ function AccountItem({ bold, smdes, userInfor, onMouseEnter, onMouseLeave }) {
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
         >
-            <img src={userInfor.avatar} alt="account" className={cn("avt")} />
+            <img
+                src={userInfor.avatar}
+                alt={`${userInfor.nickname}`}
+                className={cn("avt")}
+            />
             <div className={cn("infor")}>
                 <h4 className={cn({ bold })}>
-                    {userInfor.username}
+                    {userInfor.nickname}
                     {userInfor.badge && <img src={check} alt="img" />}
                 </h4>
-                <p className={cn({ smdes })}>{userInfor.name}</p>
+                <p className={cn({ smdes })}>{userInfor.fullname}</p>
             </div>
         </div>
     );

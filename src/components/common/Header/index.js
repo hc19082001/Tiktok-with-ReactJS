@@ -2,15 +2,16 @@ import styles from "./Header.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleXmark, faSpinner } from "@fortawesome/free-solid-svg-icons";
 import classNames from "classnames/bind";
-
+import { motion } from "framer-motion";
 import logo from "../../../assets/image/header/logo.svg";
 import plus from "../../../assets/image/header/plus.svg";
 import more from "../../../assets/image/header/more.svg";
 import search from "../../../assets/image/header/search.svg";
 import send from "../../../assets/image/header/send.svg";
 import message from "../../../assets/image/header/message.svg";
+import load from "../../../assets/image/header/load.svg";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 
 import Popover_Search from "../../Popover_Search";
 import Button from "../Button";
@@ -27,21 +28,22 @@ function Header() {
     const [isAppear, setIsAppear] = useState(false);
     const [clearBtn, setClearBtn] = useState(false);
 
+    const [SearchText, setSearchText] = useState("");
+
+    const [SearchData, setSearchData] = useState([]);
+
+    const [loading, setLoading] = useState(false);
+
     const id = useRef();
     const input = useRef();
 
     const handleChangeText = (e) => {
-        if (e.target.value) {
-            setPopover_search(true);
-            setClearBtn(true);
-        } else {
-            setPopover_search(false);
-            setClearBtn(false);
-        }
+        setSearchText(e.target.value);
     };
 
     const handleDeleteText = () => {
-        input.current.value = "";
+        input.current.focus();
+        setSearchText("");
         setClearBtn(false);
         setPopover_search(false);
     };
@@ -69,7 +71,26 @@ function Header() {
         clearTimeout(id.current);
     };
 
-    console.log([...MENU_SETTING_USER, ...MENU_SETTING]);
+    useEffect(() => {
+        if (SearchText) {
+            setClearBtn(false);
+            setPopover_search(true);
+            setLoading(true);
+            fetch(
+                `https://630b16fbed18e825164db3b3.mockapi.io/api/tiktok/users?nickname=${SearchText}`
+            )
+                .then((res) => res.json())
+                .then((data) => {
+                    setSearchData(data);
+                    setLoading(false);
+                    setClearBtn(true);
+                });
+        } else {
+            setPopover_search(false);
+            setSearchData([]);
+            setClearBtn(false);
+        }
+    }, [SearchText]);
 
     return (
         <header className={cn("header")}>
@@ -80,6 +101,7 @@ function Header() {
                         ref={input}
                         placeholder="Search accounts and videos"
                         spellCheck={false}
+                        value={SearchText}
                         onChange={handleChangeText}
                     />
                     {clearBtn && (
@@ -90,11 +112,26 @@ function Header() {
                             <FontAwesomeIcon icon={faCircleXmark} />
                         </button>
                     )}
-                    {/* <FontAwesomeIcon className={cn("load")} icon={faSpinner} /> */}
+
+                    {loading && (
+                        <motion.img
+                            initial={{ y: "-50%" }}
+                            animate={{ rotate: 360 }}
+                            transition={{
+                                repeat: Infinity,
+                                ease: "easeIn",
+                                duration: 0.5
+                            }}
+                            className={cn("load")}
+                            src={load}
+                        />
+                    )}
+
                     <button className={cn("search-btn")}>
                         <img src={search} />
                     </button>
-                    {popover_search && <Popover_Search />}
+
+                    {popover_search && <Popover_Search listdata={SearchData} />}
                 </div>
 
                 <div className={cn("actions")}>
