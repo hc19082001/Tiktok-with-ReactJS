@@ -19,6 +19,7 @@ import Popover_Setting from "../../Popover_Setting";
 import { MENU_SETTING, MENU_SETTING_USER } from "../../../Default/constant";
 import PopUpNotification from "../PopUpNotification";
 import Tooltip from "../Tooltip";
+import useDebounce from "../../../CustomHooks/useDebounce";
 
 const cn = classNames.bind(styles);
 
@@ -27,18 +28,26 @@ function Header() {
     const [isLogIn, setIsLogIn] = useState(true);
     const [isAppear, setIsAppear] = useState(false);
     const [clearBtn, setClearBtn] = useState(false);
-
     const [SearchText, setSearchText] = useState("");
-
     const [SearchData, setSearchData] = useState([]);
-
     const [loading, setLoading] = useState(false);
+
+    let lastText = useDebounce(SearchText, 500);
 
     const id = useRef();
     const input = useRef();
 
     const handleChangeText = (e) => {
         setSearchText(e.target.value);
+        if (e.target.value) {
+            setLoading(true);
+            setClearBtn(false);
+        } else {
+            setLoading(false);
+            setPopover_search(false);
+            setClearBtn(false);
+            setSearchData([]);
+        }
     };
 
     const handleDeleteText = () => {
@@ -72,12 +81,10 @@ function Header() {
     };
 
     useEffect(() => {
-        if (SearchText) {
-            setClearBtn(false);
+        if (lastText) {
             setPopover_search(true);
-            setLoading(true);
             fetch(
-                `https://630b16fbed18e825164db3b3.mockapi.io/api/tiktok/users?nickname=${SearchText}`
+                `https://630b16fbed18e825164db3b3.mockapi.io/api/tiktok/users?nickname=${lastText}`
             )
                 .then((res) => res.json())
                 .then((data) => {
@@ -85,12 +92,8 @@ function Header() {
                     setLoading(false);
                     setClearBtn(true);
                 });
-        } else {
-            setPopover_search(false);
-            setSearchData([]);
-            setClearBtn(false);
         }
-    }, [SearchText]);
+    }, [lastText]);
 
     return (
         <header className={cn("header")}>
